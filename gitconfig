@@ -10,25 +10,27 @@
 	interactive = true
 
 [alias]
-        l = log --graph --oneline --decorate --date=relative --all
-        l5 = log -5 --graph --oneline --decorate --date=relative --all
+	lg = log --graph --oneline --decorate --date=relative --all
+	l5 = log -5 --graph --oneline --decorate --date=relative --all
 	ls = ls-files
-        s = status
-        c = commit
-        cm = commit -m
-        a = add
-        ad = add .
-        d = diff
-        dh = diff HEAD
+	st = status
+	sh = show
+	cm = commit
+	cmm = commit -m
+	ad = add .
+	df = diff
+	dh = diff HEAD
 	dc = diff --cached
-        ch = checkout
-	b = branch
-	f = fetch
+	ds = diff --staged
+	ch = checkout
+	br = branch
+	ft = fetch
 	ps = push
 	pl = pull
 	pr = pull --rebase
-	g = grep --extended-regexp --break --heading --line-number
+	gr = grep --extended-regexp --break --heading --line-number
 	search = log --no-merges -i -E --pretty='%h (%ad) - [%an] %s %d' --date=format:'%b %d %Y' --grep
+
 
 [core]
 	editor = /usr/bin/vim
