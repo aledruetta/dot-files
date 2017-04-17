@@ -1,0 +1,43 @@
+[user]
+	name = Alejandro Druetta
+	email = aledruetta@gmail.com
+
+[color]
+	ui = true
+	diff = true
+	status = true
+	branch = true
+	interactive = true
+
+[alias]
+        l = log --graph --oneline --decorate --date=relative --all
+        l5 = log -5 --graph --oneline --decorate --date=relative --all
+	ls = ls-files
+        s = status
+        c = commit
+        cm = commit -m
+        a = add
+        ad = add .
+        d = diff
+        dh = diff HEAD
+        ch = checkout
+	b = branch
+	f = fetch
+	ps = push
+	pl = pull
+	pr = pull --rebase
+	g = grep --extended-regexp --break --heading --line-number
+	search = log --no-merges -i -E --pretty='%h (%ad) - [%an] %s %d' --date=format:'%b %d %Y' --grep
+
+[core]
+	editor = vim
+	ignorecase = false
+	excludefile = /home/alejandro/.gitignore_global
+
+[push]
+	default = simple
+
+[grep]
+	break = true
+	heading = true
+	lineNumber = true

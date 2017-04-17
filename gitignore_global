@@ -1,0 +1,19 @@
+*.sw[pon]
+**~
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Rope project settings
+.ropeproject
+
+# JavaScript, NodeJS
+.tern-project
+node_modules/
+npm-debug.log
