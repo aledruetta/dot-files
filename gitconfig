@@ -19,6 +19,7 @@
 	cmm = commit -m
 	ad = add .
 	adi = add -i
+	adp = add -p
 	df = diff
 	dh = diff HEAD
 	dc = diff --cached
