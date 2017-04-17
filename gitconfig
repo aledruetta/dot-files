@@ -20,6 +20,7 @@
         ad = add .
         d = diff
         dh = diff HEAD
+	dc = diff --cached
         ch = checkout
 	b = branch
 	f = fetch
@@ -30,7 +31,7 @@
 	search = log --no-merges -i -E --pretty='%h (%ad) - [%an] %s %d' --date=format:'%b %d %Y' --grep
 
 [core]
-	editor = vim
+	editor = /usr/bin/vim
 	ignorecase = false
 	excludefile = /home/alejandro/.gitignore_global
 
