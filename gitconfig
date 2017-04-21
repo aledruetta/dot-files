@@ -10,8 +10,9 @@
 	interactive = true
 
 [alias]
-	lg = log --graph --oneline --decorate --date=relative --all
-	l5 = log -5 --graph --oneline --decorate --date=relative --all
+    lg = log --graph --abbrev-commit\
+        --pretty=format:'%C(auto,yellow)%h%Creset -%C(auto,bold red)%d%Creset %s %C(auto,green)(%cr) %C(auto,bold blue)<%an>%Creset'
+	l5 = log --graph --oneline --decorate --date=relative --all
 	ls = ls-files
 	st = status
 	sh = show
@@ -32,10 +33,11 @@
 	pr = pull --rebase
 	gr = grep --extended-regexp --break --heading --line-number
 	search = log --no-merges -i -E --pretty='%h (%ad) - [%an] %s %d' --date=format:'%b %d %Y' --grep
+    follow = log --stat --follow -p --
 
 
 [core]
-	editor = /usr/bin/vim
+	editor = /usr/bin/vi
 	ignorecase = false
 	excludefile = /home/alejandro/.gitignore_global
 
