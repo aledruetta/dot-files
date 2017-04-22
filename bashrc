@@ -122,13 +122,19 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 source /usr/local/bin/virtualenvwrapper.sh
 
-alias pomodoro='$HOME/Devel/GitHub/pomodoro/script.sh'
-
 # Default editor
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-# Add ~/Devel to the PATH
+# Add ~/Devel/bin to the PATH
 if [ -d $HOME/Devel/bin ]; then
     export PATH="$PATH:$HOME/Devel/bin"
 fi
+
+# Git prompt
+source ~/.git-prompt.sh
+export GIT_PS1_SHOWUPSTREAM="auto verbose name git"
+export GIT_PS1_DESCRIBE_STYLE='describe'
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWCOLORHINTS=1
+export PS1='\w$(__git_ps1 " (%s)")\$ '
