@@ -1,7 +1,3 @@
-# Run this after editing any of your dotfiles
-alias src='source ~/.bashrc'
-alias :q='exit'
-
 alias l='ls -lartp'
 alias la='ls -la'
 alias lg='ls -la | grep'
