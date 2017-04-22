@@ -37,9 +37,9 @@
 
 
 [core]
-	editor = /usr/bin/vim
+	editor = vim
 	ignorecase = false
-	excludefile = /home/alejandro/.gitignore_global
+	excludefile = ~/.gitignore_global
 
 [push]
 	default = simple
