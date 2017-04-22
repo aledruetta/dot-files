@@ -127,7 +127,7 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 
 # Add ~/Devel/bin to the PATH
-if [ -d $HOME/Devel/bin ]; then
+if [ -d "$HOME/Devel/bin" ]; then
     export PATH="$PATH:$HOME/Devel/bin"
 fi
 
