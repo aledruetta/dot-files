@@ -1,4 +1,4 @@
-*.sw[pon]
+**.sw[pon]
 **~
 
 # Byte-compiled / optimized / DLL files

@@ -132,9 +132,21 @@ if [ -d "$HOME/Devel/bin" ]; then
 fi
 
 # Git prompt
-source ~/.git-prompt.sh
-export GIT_PS1_SHOWUPSTREAM="auto verbose name git"
-export GIT_PS1_DESCRIBE_STYLE='describe'
-export GIT_PS1_SHOWDIRTYSTATE=1
-export GIT_PS1_SHOWCOLORHINTS=1
+# source ~/.git-prompt.sh
+# export GIT_PS1_SHOWUPSTREAM="auto name git"
+# export GIT_PS1_DESCRIBE_STYLE='describe'
+# export GIT_PS1_SHOWDIRTYSTATE=1
+# export GIT_PS1_SHOWCOLORHINTS=1
+
 export PS1='\w$(__git_ps1 " (%s)")\$ '
+
+# bash-git-prompt
+GIT_PROMPT_ONLY_IN_REPO=0        # Use the default prompt when not in a git repo.
+GIT_PROMPT_FETCH_REMOTE_STATUS=0 # Avoid fetching remote status
+GIT_PROMPT_SHOW_UPSTREAM=0       # Don't display upstream tracking branch
+GIT_SHOW_UNTRACKED_FILES=no      # Don't count untracked files (no, normal, all)
+GIT_PROMPT_THEME=Solarized       # use theme optimized for solarized color scheme
+
+
+source ~/.bash-git-prompt/gitprompt.sh
+

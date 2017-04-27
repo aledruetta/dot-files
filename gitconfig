@@ -12,7 +12,7 @@
 [alias]
 	lg = log --graph --abbrev-commit \
 		--pretty=format:'%C(auto,yellow)%h%Creset -%C(auto,bold red)%d%Creset %s %C(auto,green)(%cr) %C(auto,bold blue)<%an>%Creset'
-	l5 = log --graph --oneline --decorate --date=relative --all
+	l5 = log -5 --graph --oneline --decorate --date=relative --all
 	ls = ls-files
 	st = status
 	sh = show
@@ -25,6 +25,7 @@
 	dh = diff HEAD
 	dc = diff --cached
 	ds = diff --staged
+	dt = diff-tree --no-commit-id --name-only -r
 	ch = checkout
 	br = branch
 	ft = fetch
