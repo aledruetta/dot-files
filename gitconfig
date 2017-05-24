@@ -1,51 +1,54 @@
 [user]
-	name = Alejandro Druetta
-	email = aledruetta@gmail.com
+    name = Alejandro Druetta
+    email = aledruetta@gmail.com
 
 [color]
-	ui = true
-	diff = true
-	status = true
-	branch = true
-	interactive = true
+    ui = true
+    diff = true
+    status = true
+    branch = true
+    interactive = true
 
 [alias]
-	lg = log --graph --abbrev-commit \
-		--pretty=format:'%C(auto,yellow)%h%Creset -%C(auto,bold red)%d%Creset %s %C(auto,green)(%cr) %C(auto,bold blue)<%an>%Creset'
-	l5 = log -5 --graph --oneline --decorate --date=relative --all
-	ls = ls-files
-	st = status
-	sh = show
-	cm = commit
-	cmm = commit -m
-	ad = add .
-	adi = add -i
-	adp = add -p
-	df = diff
-	dh = diff HEAD
-	dc = diff --cached
-	ds = diff --staged
-	dt = diff-tree --no-commit-id --name-only -r
-	ch = checkout
-	br = branch
-	ft = fetch
-	ps = push
-	pl = pull
-	pr = pull --rebase
-	gr = grep --extended-regexp --break --heading --line-number
-	search = log --no-merges -i -E --pretty='%h (%ad) - [%an] %s %d' --date=format:'%b %d %Y' --grep
-	follow = log --stat --follow -p --
+    lg = log --graph --abbrev-commit \
+        --pretty=format:'%C(auto,yellow)%h%Creset -%C(auto,bold red)%d%Creset %s %C(auto,green)(%cr) %C(auto,bold blue)<%an>%Creset'
+    l1 = log -1 --graph --oneline --decorate --date=relative --all
+    l5 = log -5 --graph --oneline --decorate --date=relative --all
+    l0 = log -10 --graph --oneline --decorate --date=relative --all
+    ls = ls-files -v
+    st = status
+    sh = show
+    cm = commit
+    cmm = commit -m
+    ad = add .
+    adi = add -i
+    adp = add -p
+    df = diff
+    dh = diff HEAD
+    dc = diff --cached
+    ds = diff --staged
+    dt = diff-tree --no-commit-id --name-only -r
+    ch = checkout
+    br = branch
+    ft = fetch
+    ps = push
+    pl = pull
+    pr = pull --rebase
+    rb = rebase
+    gr = grep --extended-regexp --break --heading --line-number
+    search = log --no-merges -i -E --pretty='%h (%ad) - [%an] %s %d' --date=format:'%b %d %Y' --grep
+    follow = log --stat --follow -p --
 
 
 [core]
-	editor = vim
-	ignorecase = false
-	excludefile = ~/.gitignore_global
+    editor = vim
+    ignorecase = false
+    excludefile = ~/.gitignore_global
 
 [push]
-	default = simple
+    default = simple
 
 [grep]
-	break = true
-	heading = true
-	lineNumber = true
+    break = true
+    heading = true
+    lineNumber = true
