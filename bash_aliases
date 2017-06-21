@@ -7,7 +7,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-alias docean="ssh digitalocean"
+alias digitalocean="ssh digitalocean"
 alias www='cd ~/Devel/server/public/'
 
 alias upgrade="sudo apt -y update && sudo apt -y full-upgrade"
