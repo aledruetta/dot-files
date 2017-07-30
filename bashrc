@@ -150,3 +150,6 @@ GIT_PROMPT_THEME=Solarized       # use theme optimized for solarized color schem
 
 source ~/.bash-git-prompt/gitprompt.sh
 
+
+# added by Miniconda3 4.3.21 installer
+export PATH="/home/alejandro/miniconda3/bin:$PATH"
