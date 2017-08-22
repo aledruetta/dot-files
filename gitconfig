@@ -20,6 +20,7 @@
     sh = show
     cm = commit
     cmm = commit -m
+    acm = commit -am
     ad = add .
     adi = add -i
     adp = add -p
