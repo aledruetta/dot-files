@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -116,41 +117,25 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# virtualenv
-# export WORKON_HOME=$HOME/.virtualenvs
-# export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-# export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-# source /usr/local/bin/virtualenvwrapper.sh
-
 # Default editor
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-# Add ~/Devel/bin to the PATH
-if [ -d "$HOME/Devel/bin" ]; then
-    export PATH="$PATH:$HOME/Devel/bin"
-fi
-
-# Git prompt
-# source ~/.git-prompt.sh
-# export GIT_PS1_SHOWUPSTREAM="auto name git"
-# export GIT_PS1_DESCRIBE_STYLE='describe'
-# export GIT_PS1_SHOWDIRTYSTATE=1
-# export GIT_PS1_SHOWCOLORHINTS=1
-
-export PS1='\w$(__git_ps1 " (%s)")\$ '
-
 # bash-git-prompt
-GIT_PROMPT_ONLY_IN_REPO=0        # Use the default prompt when not in a git repo.
-GIT_PROMPT_FETCH_REMOTE_STATUS=0 # Avoid fetching remote status
-GIT_PROMPT_SHOW_UPSTREAM=0       # Don't display upstream tracking branch
-GIT_SHOW_UNTRACKED_FILES=no      # Don't count untracked files (no, normal, all)
-GIT_PROMPT_THEME=Solarized       # use theme optimized for solarized color scheme
-
+export GIT_PROMPT_ONLY_IN_REPO=0        # Use the default prompt when not in a git repo.
+export GIT_PROMPT_FETCH_REMOTE_STATUS=0 # Avoid fetching remote status
+export GIT_PROMPT_SHOW_UPSTREAM=0       # Don't display upstream tracking branch
+export GIT_SHOW_UNTRACKED_FILES=no      # Don't count untracked files (no, normal, all)
+export GIT_PROMPT_THEME=Solarized       # use theme optimized for solarized color scheme
 
 source ~/.bash-git-prompt/gitprompt.sh
 
+# Add ~/Devel/bin to the PATH
+if [ -d "$HOME/Devel/bin" ]; then
+export PATH="$PATH:$HOME/Devel/bin"
+fi
 
 # added by Miniconda3 4.3.21 installer
-export PATH="/home/alejandro/miniconda3/bin:$PATH"
-
+if [ -d "$HOME/miniconda3/bin" ]; then
+ export PATH="$HOME/miniconda3/bin:$PATH"
+fi
