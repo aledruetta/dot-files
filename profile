@@ -25,3 +25,33 @@ if [ -d /etc/profile.d ]; then
   done
   unset i
 fi
+
+# bash-git-prompt
+export GIT_PROMPT_ONLY_IN_REPO=0
+
+# export GIT_PROMPT_FETCH_REMOTE_STATUS=0   # uncomment to avoid fetching remote status
+# export GIT_PROMPT_IGNORE_SUBMODULES=1 # uncomment to avoid searching for changed files in submodules
+
+# export GIT_PROMPT_SHOW_UPSTREAM=1 # uncomment to show upstream tracking branch
+# export GIT_PROMPT_SHOW_UNTRACKED_FILES=all # can be no, normal or all; determines counting of untracked files
+
+# export GIT_PROMPT_SHOW_CHANGED_FILES_COUNT=0 # uncomment to avoid printing the number of changed files
+
+# export GIT_PROMPT_START=...    # uncomment for custom prompt start sequence
+# export GIT_PROMPT_END=...      # uncomment for custom prompt end sequence
+
+# as last entry source the gitprompt script
+# export GIT_PROMPT_THEME=Custom # use custom theme specified in file GIT_PROMPT_THEME_FILE (default ~/.git-prompt-colors.sh)
+# export GIT_PROMPT_THEME_FILE=~/.git-prompt-colors.sh
+# export GIT_PROMPT_THEME=Solarized # use theme optimized for solarized color scheme
+
+source ~/.bash-git-prompt/gitprompt.sh
+
+# Default editor
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+# Add ~/Devel/bin to the PATH
+if [ -d "$HOME/Devel/bin" ]; then
+	export PATH="$PATH:$HOME/Devel/bin"
+fi
