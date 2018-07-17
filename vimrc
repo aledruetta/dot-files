@@ -34,6 +34,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()           " required
 
 filetype plugin indent on   " required
