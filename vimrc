@@ -43,7 +43,7 @@ syntax on
 set nowrap
 set encoding=utf8
 set number
-set ruler
+set noruler
 set wildmenu            " visual autocomplete for command menu
 set showmatch           " highlight matching [{()}]
 set ignorecase          " ignore case in search
@@ -66,35 +66,27 @@ set expandtab           " tabs are spaces
 set autoindent          " auto indent based on previous line
 set textwidth=79
 
-" PHP
-augroup php
-    au!
-    autocmd BufRead,BufNewFile *.php set filetype=php
-    autocmd Filetype php setlocal tabstop=2 shiftwidth=2
-augroup END
+au BufNewFile,BufRead *.js
+    \ set tabstop=2
+    \ softtabstop=2
+    \ shiftwidth=2
 
-" HTML
-augroup html
-    au!
-    autocmd BufRead,BufNewFile *.html set filetype=html
-    autocmd Filetype html setlocal tabstop=2 shiftwidth=2
-augroup END
+au BufNewFile,BufRead *.json
+    \ set tabstop=2
+    \ softtabstop=2
+    \ shiftwidth=2
 
-" CSS
-augroup css
-    au!
-    autocmd BufRead,BufNewFile *.css set filetype=css
-    autocmd Filetype css setlocal tabstop=2 shiftwidth=2
-augroup END
+au BufNewFile,BufRead *.html
+    \ set tabstop=2
+    \ softtabstop=2
+    \ shiftwidth=2
 
-" JS
-augroup javascript
-    au!
-    autocmd BufRead,BufNewFile *.js,*.json set filetype=javascript
-    autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2
-augroup END
+au BufNewFile,BufRead *.css
+    \ set tabstop=2
+    \ softtabstop=2
+    \ shiftwidth=2
 
-set laststatus=2
+set laststatus=1
 set t_Co=256
 set background=dark
 
@@ -117,4 +109,4 @@ let g:syntastic_html_checkers = ['eslint']
 " let g:syntastic_javascript_checkers = ['eslint', 'tern_lint']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_json_checkers = ['jsonlint']
-"'eslint', 'tern_lint'] https://github.com/vim-syntastic/syntastic/blob/master/doc/syntastic-checkers.txt
+"https://github.com/vim-syntastic/syntastic/blob/master/doc/syntastic-checkers.txt
