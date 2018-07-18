@@ -33,8 +33,14 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'nvie/vim-flake8'
+Plugin 'jnurmine/Zenburn'
+Plugin 'altercation/vim-colors-solarized'
 call vundle#end()           " required
 
 filetype plugin indent on   " required
@@ -43,6 +49,7 @@ syntax on
 set nowrap
 set encoding=utf8
 set number
+set cursorline
 set noruler
 set wildmenu            " visual autocomplete for command menu
 set showmatch           " highlight matching [{()}]
@@ -65,6 +72,8 @@ set smarttab
 set expandtab           " tabs are spaces
 set autoindent          " auto indent based on previous line
 set textwidth=79
+
+let python_highlight_all = 1
 
 au BufNewFile,BufRead *.js
     \ set tabstop=2
@@ -91,6 +100,13 @@ set t_Co=256
 set background=dark
 
 """ Plugin Configurations
+
+if has('gui_running')
+    set background=dark
+    colorscheme solarized
+else
+    colorscheme zenburn
+endif
 
 " Syntastic
 
