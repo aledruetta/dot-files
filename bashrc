@@ -47,7 +47,7 @@ if [ ! -e "$HOME/.sudo_as_admin_successful" ] && [ ! -e "$HOME/.hushlogin" ] ; t
 	cat <<-EOF
 	To run a command as administrator (user "root"), use "sudo <command>".
 	See "man sudo_root" for details.
-	
+
 	EOF
     fi
     esac
@@ -72,3 +72,6 @@ fi
 
 # bash-git-prompt
 source ~/.bash-git-prompt/gitprompt.sh
+
+# added by Anaconda3 installer
+export PATH="/home/alejandro/anaconda3/bin:$PATH"
