@@ -55,3 +55,9 @@ export EDITOR="$VISUAL"
 if [ -d "$HOME/Devel/bin" ]; then
 	export PATH="$PATH:$HOME/Devel/bin"
 fi
+
+# Add ~/.local/bin to the PATH
+if [ -d "$HOME/.local/bin" ]; then
+	export PATH="$PATH:$HOME/.local/bin"
+fi
+

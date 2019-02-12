@@ -95,6 +95,11 @@ au BufNewFile,BufRead *.css
     \ softtabstop=2
     \ shiftwidth=2
 
+au BufNewFile,BufRead *.ino
+    \ set tabstop=4
+    \ softtabstop=4
+    \ shiftwidth=4
+
 set laststatus=1
 set t_Co=256
 set background=dark
