@@ -41,6 +41,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'nvie/vim-flake8'
 Plugin 'jnurmine/Zenburn'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'itchyny/lightline.vim'
 call vundle#end()           " required
 
 filetype plugin indent on   " required
