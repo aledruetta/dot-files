@@ -130,4 +130,12 @@ let g:syntastic_html_checkers = ['eslint']
 " let g:syntastic_javascript_checkers = ['eslint', 'tern_lint']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_json_checkers = ['jsonlint']
+let g:syntastic_c_checkers=['gcc', 'avrgcc']
+let g:syntastic_cpp_checkers=['gcc', 'avrgcc']
+let g:syntastic_hpp_checkers=['gcc', 'avrgcc']
 "https://github.com/vim-syntastic/syntastic/blob/master/doc/syntastic-checkers.txt
+
+" YouCompleteMe
+
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+
