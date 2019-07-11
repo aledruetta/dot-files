@@ -20,6 +20,7 @@
 " :NERDTree [path]
 " :NERDTreeToggle
 " :NERDTreeClose
+" :NERDTreeRefresh
 " :h NERDTree
 
 set nocompatible            " be iMproved, required
