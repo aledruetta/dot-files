@@ -31,19 +31,21 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'nvie/vim-flake8'
-Plugin 'jnurmine/Zenburn'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'itchyny/lightline.vim'
+Plugin 'c.vim'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'cquery-project/cquery'
+Plugin 'Zenburn'
+Plugin 'mhartington/oceanic-next'
+Plugin 'rakr/vim-one'
 call vundle#end()           " required
+
+Bundle 'sonph/onehalf', {'rtp': 'vim/'}
 
 filetype plugin indent on   " required
 
@@ -103,16 +105,39 @@ au BufNewFile,BufRead *.ino
     \ shiftwidth=4
 
 set laststatus=1
-set t_Co=256
 set background=dark
+
+" for vim 8
+ if (has("termguicolors"))
+  set termguicolors
+ endif
 
 """ Plugin Configurations
 
-if has('gui_running')
-    set background=dark
-    colorscheme solarized
-else
-    colorscheme zenburn
+set background=dark
+" colorscheme onehalfdark
+" colorscheme OceanicNext
+colorscheme one
+
+let g:one_allow_italics = 1
+let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_italic = 1
+
+"Credit joshdick
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
 endif
 
 " Syntastic
@@ -140,4 +165,8 @@ let g:syntastic_hpp_checkers=['gcc', 'avrgcc']
 " YouCompleteMe
 
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+
+" let g:airline_theme='onehalfdark'
+" let g:airline_theme='oceanicnext'
+" let g:airline_theme='one'
 
