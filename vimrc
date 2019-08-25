@@ -44,6 +44,7 @@ Plugin 'Zenburn'
 Plugin 'mhartington/oceanic-next'
 Plugin 'rakr/vim-one'
 Plugin 'sonph/onehalf', {'rtp': 'vim/'}
+Plugin 'vim-airline/vim-airline'
 call vundle#end()           " required
 
 filetype plugin indent on   " required
@@ -129,6 +130,10 @@ set background=dark
 " colorscheme one
 colorscheme onehalfdark
 
+let g:airline_theme='onehalfdark'
+" let g:airline_theme='oceanicnext'
+" let g:airline_theme='one'
+
 " Syntastic
 
 set statusline+=%#warningmsg#
@@ -154,8 +159,4 @@ let g:syntastic_hpp_checkers=['gcc', 'avrgcc']
 " YouCompleteMe
 
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-
-" let g:airline_theme='onehalfdark'
-" let g:airline_theme='oceanicnext'
-" let g:airline_theme='one'
 
