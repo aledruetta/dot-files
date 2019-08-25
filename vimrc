@@ -31,11 +31,11 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-sensible'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'nvie/vim-flake8'
 Plugin 'c.vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
@@ -46,8 +46,8 @@ Plugin 'rakr/vim-one'
 Plugin 'sonph/onehalf', {'rtp': 'vim/'}
 Plugin 'vim-airline/vim-airline'
 Plugin 'edkolev/tmuxline.vim'
+Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tmux-plugins/vim-tmux'
-Plugin 'tpope/vim-sensible'
 call vundle#end()           " required
 
 filetype plugin indent on   " required
