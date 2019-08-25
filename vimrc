@@ -45,6 +45,7 @@ Plugin 'mhartington/oceanic-next'
 Plugin 'rakr/vim-one'
 Plugin 'sonph/onehalf', {'rtp': 'vim/'}
 Plugin 'vim-airline/vim-airline'
+Plugin 'edkolev/tmuxline.vim'
 call vundle#end()           " required
 
 filetype plugin indent on   " required
@@ -125,6 +126,8 @@ if (empty($TMUX))
   endif
 endif
 
+" Theme
+
 set background=dark
 " colorscheme OceanicNext
 " colorscheme one
@@ -133,6 +136,8 @@ colorscheme onehalfdark
 let g:airline_theme='onehalfdark'
 " let g:airline_theme='oceanicnext'
 " let g:airline_theme='one'
+
+" let g:airline_powerline_fonts = 1
 
 " Syntastic
 
