@@ -46,6 +46,8 @@ Plugin 'rakr/vim-one'
 Plugin 'sonph/onehalf', {'rtp': 'vim/'}
 Plugin 'vim-airline/vim-airline'
 Plugin 'edkolev/tmuxline.vim'
+Plugin 'tmux-plugins/vim-tmux'
+Plugin 'tpope/vim-sensible'
 call vundle#end()           " required
 
 filetype plugin indent on   " required
