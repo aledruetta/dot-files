@@ -3,7 +3,7 @@
 dotfilesDir=$(pwd)
 
 function linkDotfile {
-  dest="${HOME}/.${1}"
+  dest="${1}/.${2}"
   dateStr=$(date +%Y-%m-%d-%H%M)
 
   if [ -L ${dest} ]; then
@@ -23,13 +23,14 @@ function linkDotfile {
   fi
 
   echo "Creating new symlink: ${dest}"
-  ln -s ${dotfilesDir}/${1} ${dest}
+  ln -s ${dotfilesDir}/${2} ${dest}
 }
 
-linkDotfile vimrc
-linkDotfile tmux.conf
-linkDotfile bashrc
-linkDotfile profile
-linkDotfile gitconfig
-linkDotfile gitignore_global
-linkDotfile zshrc
+linkDotfile $HOME vimrc
+linkDotfile $HOME tmux.conf
+linkDotfile $HOME bashrc
+linkDotfile $HOME profile
+linkDotfile $HOME gitconfig
+linkDotfile $HOME gitignore_global
+linkDotfile $HOME zshrc
+linkDotfile $HOME/.vim ycm_extra_conf.py
