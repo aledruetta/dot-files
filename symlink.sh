@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -eu
 
 dotfilesDir=$(pwd)
 
@@ -26,11 +26,15 @@ function linkDotfile {
   ln -s "${dotfilesDir}/${2}" "${dest}"
 }
 
-linkDotfile "$HOME" vimrc
-linkDotfile "$HOME" tmux.conf
-linkDotfile "$HOME" bashrc
-linkDotfile "$HOME" profile
-linkDotfile "$HOME" gitconfig
-linkDotfile "$HOME" gitignore_global
-linkDotfile "$HOME" zshrc
-linkDotfile "$HOME"/.vim ycm_extra_conf.py
+function main {
+  linkDotfile "$HOME" vimrc
+  linkDotfile "$HOME" tmux.conf
+  linkDotfile "$HOME" bashrc
+  linkDotfile "$HOME" profile
+  linkDotfile "$HOME" gitconfig
+  linkDotfile "$HOME" gitignore_global
+  linkDotfile "$HOME" zshrc
+  linkDotfile "$HOME"/.vim ycm_extra_conf.py
+}
+
+main "$@"

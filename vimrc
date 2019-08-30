@@ -102,6 +102,11 @@ au BufNewFile,BufRead *.css
     \ softtabstop=2
     \ shiftwidth=2
 
+au BufNewFile,BufRead *.sh
+    \ set tabstop=2
+    \ softtabstop=2
+    \ shiftwidth=2
+
 au BufNewFile,BufRead *.ino
     \ set tabstop=4
     \ softtabstop=4
