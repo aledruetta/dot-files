@@ -29,4 +29,5 @@ fi
 # Custom
 alias gcc="LC_ALL=C gcc"
 alias g++="LC_ALL=C g++"
+export LC_ALL=C
 
