@@ -40,14 +40,15 @@ Plugin 'nvie/vim-flake8'
 Plugin 'c.vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'cquery-project/cquery'
-Plugin 'Zenburn'
+Plugin 'lifepillar/vim-solarized8'
 Plugin 'mhartington/oceanic-next'
 Plugin 'rakr/vim-one'
 Plugin 'sonph/onehalf', {'rtp': 'vim/'}
 Plugin 'vim-airline/vim-airline'
-Plugin 'edkolev/tmuxline.vim'
+" Plugin 'edkolev/tmuxline.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tmux-plugins/vim-tmux'
+Plugin 'fatih/vim-go'
 call vundle#end()           " required
 
 filetype plugin indent on   " required
@@ -116,10 +117,10 @@ set laststatus=1
 
 """ Plugin Configurations
 
-"Credit joshdick
-"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+" Credit joshdick
+" Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+" If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+" (see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
 if (empty($TMUX))
   if (has("nvim"))
     "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
@@ -138,7 +139,8 @@ endif
 set background=dark
 " colorscheme OceanicNext
 " colorscheme one
-colorscheme onehalfdark
+" colorscheme onehalfdark
+colorscheme solarized8_flat
 
 let g:airline_theme='onehalfdark'
 " let g:airline_theme='oceanicnext'

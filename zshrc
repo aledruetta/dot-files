@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-  export PATH="/home/alejandro/anaconda3/bin:$PATH"
+# export PATH="/home/alejandro/anaconda3/bin:$PATH"  # commented out by conda initialize
 
 # Path to your oh-my-zsh installation.
   export ZSH="/home/alejandro/.oh-my-zsh"
@@ -97,3 +97,26 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Created by `userpath` on 2019-10-14 01:07:59
+export PATH="$PATH:/home/alejandro/.local/bin"
+
+. $HOME/.asdf/asdf.sh
+
+. $HOME/.asdf/completions/asdf.bash
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/alejandro/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/alejandro/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/alejandro/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/alejandro/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
