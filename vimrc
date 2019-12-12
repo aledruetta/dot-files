@@ -113,6 +113,13 @@ au BufNewFile,BufRead *.ino
     \ softtabstop=4
     \ shiftwidth=4
 
+" arm = armv6/7
+" \ set filetype=arm
+au BufNewFile,BufRead *.s,*.S
+    \ set tabstop=8
+    \ softtabstop=8
+    \ shiftwidth=8
+
 set laststatus=1
 
 """ Plugin Configurations
