@@ -49,6 +49,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tmux-plugins/vim-tmux'
 Plugin 'fatih/vim-go'
+Plugin 'ARM9/arm-syntax-vim'
 call vundle#end()           " required
 
 filetype plugin indent on   " required
@@ -108,15 +109,11 @@ au BufNewFile,BufRead *.sh
     \ softtabstop=2
     \ shiftwidth=2
 
-au BufNewFile,BufRead *.ino
-    \ set tabstop=4
-    \ softtabstop=4
-    \ shiftwidth=4
+au BufNewFile,BufRead *.ino set filetype=cpp
 
 " arm = armv6/7
-" \ set filetype=arm
-au BufNewFile,BufRead *.s,*.S
-    \ set tabstop=8
+au BufNewFile,BufRead *.s,*.S set filetype=arm
+    \ tabstop=8
     \ softtabstop=8
     \ shiftwidth=8
 
