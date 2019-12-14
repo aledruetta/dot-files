@@ -121,6 +121,14 @@ au BufNewFile,BufRead *.s,*.S set filetype=arm
 
 set laststatus=1
 
+" Theme
+
+set background=dark
+" colorscheme OceanicNext
+" colorscheme one
+" colorscheme onehalfdark
+colorscheme solarized8_flat
+
 """ Plugin Configurations
 
 " Credit joshdick
@@ -140,19 +148,18 @@ if (empty($TMUX))
   endif
 endif
 
-" Theme
+" Airline
 
-set background=dark
-" colorscheme OceanicNext
-" colorscheme one
-" colorscheme onehalfdark
-colorscheme solarized8_flat
-
-let g:airline_theme='onehalfdark'
+" let g:airline_theme='onehalfdark'
 " let g:airline_theme='oceanicnext'
 " let g:airline_theme='one'
-
 " let g:airline_powerline_fonts = 1
+
+" Lightline
+
+let g:lightline = {
+    \ 'colorscheme': 'solarized',
+    \ }
 
 " Syntastic
 
