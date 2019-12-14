@@ -50,6 +50,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tmux-plugins/vim-tmux'
 Plugin 'fatih/vim-go'
 Plugin 'ARM9/arm-syntax-vim'
+Plugin 'jplaut/vim-arduino-ino'
 call vundle#end()           " required
 
 filetype plugin indent on   " required
