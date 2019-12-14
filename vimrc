@@ -109,7 +109,7 @@ au BufNewFile,BufRead *.sh
     \ softtabstop=2
     \ shiftwidth=2
 
-au BufNewFile,BufRead *.ino set filetype=cpp
+au BufNewFile,BufRead *.ino,*.pde set filetype=c++
 
 " arm = armv6/7
 au BufNewFile,BufRead *.s,*.S set filetype=arm
