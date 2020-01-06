@@ -52,6 +52,8 @@ Plugin 'tmux-plugins/vim-tmux'
 Plugin 'fatih/vim-go'
 Plugin 'ARM9/arm-syntax-vim'
 Plugin 'jplaut/vim-arduino-ino'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 call vundle#end()           " required
 
 filetype plugin indent on   " required
@@ -186,4 +188,14 @@ let g:syntastic_hpp_checkers=['gcc', 'avrgcc']
 " YouCompleteMe
 
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+
+" Snippets
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
