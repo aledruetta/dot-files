@@ -157,6 +157,9 @@ colorscheme solarized8_flat
 " let g:airline_theme='one'
 " let g:airline_powerline_fonts = 1
 
+let g:pymode_python = 'python3'
+" let g:pymode_lint_checkers = ['pep8']
+
 " Lightline
 
 let g:lightline = {

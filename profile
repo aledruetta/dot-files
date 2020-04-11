@@ -38,3 +38,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # exercism
 
 export PATH="$HOME/bin:$PATH"
+
+# golang
+export GOPATH=$HOME/work
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
