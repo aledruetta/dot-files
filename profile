@@ -26,19 +26,15 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Custom
-alias gcc="LC_ALL=C gcc"
-alias g++="LC_ALL=C g++"
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-# exercism
-
-export PATH="$HOME/bin:$PATH"
-
 # golang
 export GOPATH=$HOME/work
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+
+# Customs GCC
+alias gcc="LC_ALL=C gcc"
+alias g++="LC_ALL=C g++"
