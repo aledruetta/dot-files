@@ -33,15 +33,15 @@ function linkDotfile {
 
 function main {
   echo "Start"
-  linkDotfile "$HOME" common vimrc
-  linkDotfile "$HOME" common tmux.conf
-  linkDotfile "$HOME" common bash_alias
-  linkDotfile "$HOME" common gitconfig
-  linkDotfile "$HOME" common gitignore_global
-  linkDotfile "$HOME" common zshrc
-  linkDotfile "${HOME}/.vim" common ycm_extra_conf.py
-  linkDotfile "$HOME" "${distro}" bashrc
-  linkDotfile "$HOME" "${distro}" profile
+  # linkDotfile "$HOME" common vimrc
+  # linkDotfile "$HOME" common tmux.conf
+  # linkDotfile "$HOME" common bash_alias
+  # linkDotfile "$HOME" common gitconfig
+  # linkDotfile "$HOME" common gitignore_global
+  # linkDotfile "$HOME" common zshrc
+  # linkDotfile "${HOME}/.vim" common ycm_extra_conf.py
+  # linkDotfile "$HOME" "${distro}" bashrc
+  # linkDotfile "$HOME" "${distro}" profile
   echo "End"
 }
 
