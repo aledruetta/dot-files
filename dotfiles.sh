@@ -4,8 +4,6 @@
 #   - Uncomment desired call funtions into main
 #   - ./dotfiles.sh
 
-distro="$1"
-
 function linkDotfile {
   dest="${1}/.${3}"
   dateStr="$(date +%Y-%m-%d-%H%M)"
@@ -31,18 +29,52 @@ function linkDotfile {
   ln -s "$(pwd)/${2}/${3}" "${dest}"
 }
 
-function main {
-  echo "Start"
-  # linkDotfile "$HOME" common vimrc
-  # linkDotfile "$HOME" common tmux.conf
-  # linkDotfile "$HOME" common bash_alias
-  # linkDotfile "$HOME" common gitconfig
-  # linkDotfile "$HOME" common gitignore_global
-  # linkDotfile "$HOME" common zshrc
-  # linkDotfile "${HOME}/.vim" common ycm_extra_conf.py
-  # linkDotfile "$HOME" "${distro}" bashrc
-  # linkDotfile "$HOME" "${distro}" profile
-  echo "End"
+function usage {
+  echo "Usage: $0 [-vtgbz] distro" 1>&2
+  exit 1
 }
 
-main
+function main {
+  if [[ $# -ne 2 ]]; then
+    usage
+  fi
+
+  distro="$2"
+
+  echo "Linux distro: $distro"
+  echo -e "\nStart...\n"
+
+  while getopts ":vtbgz" opt; do
+    case "$opt" in
+      v  ) # vim
+        linkDotfile "$HOME" common vimrc
+        linkDotfile "${HOME}/.vim" common ycm_extra_conf.py
+        ;;
+      t  ) # tmux
+        linkDotfile "$HOME" common tmux.conf
+        ;;
+      b  ) # bash
+        linkDotfile "$HOME" common bash_alias
+        linkDotfile "$HOME" "${distro}" bashrc
+        linkDotfile "$HOME" "${distro}" profile
+        ;;
+      g  ) # git
+        linkDotfile "$HOME" common gitconfig
+        linkDotfile "$HOME" common gitignore_global
+        ;;
+      z  ) # zsh
+        linkDotfile "$HOME" common zshrc
+        ;;
+      \? ) # usage
+        usage
+        ;;
+      *  ) # else
+        usage
+        ;;
+    esac
+  done
+  shift $((OPTIND-1))
+  echo -e "\nEnd..."
+}
+
+main "$@"
