@@ -54,7 +54,7 @@ function main {
         linkDotfile "$HOME" common tmux.conf
         ;;
       b  ) # bash
-        linkDotfile "$HOME" common bash_alias
+        linkDotfile "$HOME" common bash_aliases
         linkDotfile "$HOME" "${distro}" bashrc
         linkDotfile "$HOME" "${distro}" profile
         ;;
