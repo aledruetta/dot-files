@@ -1,8 +1,13 @@
-#!/bin/bash -eu
+#!/usr/bin/env bash
 
 # Usage:
 #   - Uncomment desired call funtions into main
-#   - ./dotfiles.sh
+#   - ./dotfiles.sh [-vtgbz] distro
+
+set -o errexit      # Abort script at first error
+set -o nounset      # Error when attempt to use undefined variable
+# set -o xtrace       # Verbose
+set -o pipefail     # Pipeline return the exit status
 
 function linkDotfile {
   dest="${1}/.${3}"
