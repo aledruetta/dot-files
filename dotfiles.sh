@@ -49,23 +49,54 @@ function main {
   echo "Linux distro: $distro"
   echo -e "\nStart...\n"
 
+  final_msg=""
+
   while getopts ":vtbgz" opt; do
     case "$opt" in
       v  ) # vim
+        if [[ ! -d ~/.vim/bundle ]]; then
+          git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+          final_msg+="\n- Uncomment vim plugins and run :PluginsInstall"
+        fi
         linkDotfile "$HOME" common vimrc
         linkDotfile "${HOME}/.vim" common ycm_extra_conf.py
         ;;
       t  ) # tmux
+        if [[ ! -d ~/.tmux ]]; then
+          git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+          final_msg+="\n- Install tmux plugins with 'C-b + I'"
+        fi
         linkDotfile "$HOME" common tmux.conf
         ;;
       b  ) # bash
         linkDotfile "$HOME" common bash_aliases
         linkDotfile "$HOME" "${distro}" bashrc
+        linkDotfile "$HOME" "${distro}" bash_logout
         linkDotfile "$HOME" "${distro}" profile
         ;;
       g  ) # git
+        if [[ ! -d ~/.bash-git-prompt ]]; then
+          git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
+        fi
+
+        cat <<END >> ~/.bashrc
+
+# Git completion
+. ~/.git-completion.bash
+END
+        cat <<END >> ~/.bashrc
+
+# Git prompt
+if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
+    GIT_PROMPT_ONLY_IN_REPO=0
+    GIT_PROMPT_THEME=Default_Ubuntu
+    source $HOME/.bash-git-prompt/gitprompt.sh
+fi
+END
         linkDotfile "$HOME" common gitconfig
         linkDotfile "$HOME" common gitignore_global
+        linkDotfile "$HOME" common git-completion.bash
+        # linkDotfile "$HOME" common git-prompt.sh
         ;;
       z  ) # zsh
         linkDotfile "$HOME" common zshrc
@@ -79,6 +110,8 @@ function main {
     esac
   done
   shift $((OPTIND-1))
+
+  echo -e "$final_msg"
   echo -e "\nEnd..."
 }
 

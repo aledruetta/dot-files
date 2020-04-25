@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+alias activate="source venv/bin/activate"

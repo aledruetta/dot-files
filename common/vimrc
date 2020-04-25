@@ -35,7 +35,7 @@ Plugin 'tpope/vim-sensible'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-syntastic/syntastic'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'nvie/vim-flake8'
 Plugin 'c.vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
@@ -160,6 +160,12 @@ colorscheme solarized8_flat
 let g:pymode_python = 'python3'
 " let g:pymode_lint_checkers = ['pep8']
 
+" Kite
+
+" let g:kite_auto_complete=1
+" let g:kite_tab_complete=1
+" let g:kite_snippets=1
+
 " Lightline
 
 let g:lightline = {
@@ -170,6 +176,7 @@ let g:lightline = {
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{kite#statusline()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
