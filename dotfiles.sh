@@ -79,20 +79,6 @@ function main {
           git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
         fi
 
-        cat <<END >> ~/.bashrc
-
-# Git completion
-. ~/.git-completion.bash
-END
-        cat <<END >> ~/.bashrc
-
-# Git prompt
-if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
-    GIT_PROMPT_ONLY_IN_REPO=0
-    GIT_PROMPT_THEME=Default_Ubuntu
-    source $HOME/.bash-git-prompt/gitprompt.sh
-fi
-END
         linkDotfile "$HOME" common gitconfig
         linkDotfile "$HOME" common gitignore_global
         linkDotfile "$HOME" common git-completion.bash
