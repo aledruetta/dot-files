@@ -70,6 +70,7 @@ function main {
         ;;
       b  ) # bash
         linkDotfile "$HOME" common bash_aliases
+        linkDotfile "$HOME" common inputrc
         linkDotfile "$HOME" "${distro}" bashrc
         linkDotfile "$HOME" "${distro}" bash_logout
         linkDotfile "$HOME" "${distro}" profile
