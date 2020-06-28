@@ -174,3 +174,5 @@ alias glum='git pull upstream master'
 alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
 alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify --no-gpg-sign -m "--wip-- [skip ci]"'
 
+# Quartus II Web Edition
+# alias quartus='/home/alejandro/altera/15.0/quartus/bin/quartus --64bit'

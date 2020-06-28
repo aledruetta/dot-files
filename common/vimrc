@@ -166,6 +166,9 @@ let g:pymode_python = 'python3'
 " let g:kite_tab_complete=1
 " let g:kite_snippets=1
 
+" NerdTree
+let NERDTreeIgnore = ['^\.git$', '^\.vagrant', '.*\.sw[pon]$']
+
 " Lightline
 
 let g:lightline = {
