@@ -34,13 +34,14 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-sensible'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'scrooloose/nerdtree'
-Plugin 'vim-syntastic/syntastic'
+" Plugin 'vim-syntastic/syntastic'
 " Plugin 'Valloric/YouCompleteMe'
 Plugin 'nvie/vim-flake8'
 Plugin 'c.vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'cquery-project/cquery'
 Plugin 'lifepillar/vim-solarized8'
+" Plugin 'rust-lang/rust.vim'
 " Plugin 'mhartington/oceanic-next'
 " Plugin 'rakr/vim-one'
 " Plugin 'sonph/onehalf', {'rtp': 'vim/'}
@@ -49,11 +50,14 @@ Plugin 'lifepillar/vim-solarized8'
 Plugin 'itchyny/lightline.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tmux-plugins/vim-tmux'
+Plugin 'editorconfig/editorconfig-vim'
 " Plugin 'fatih/vim-go'
 " Plugin 'ARM9/arm-syntax-vim'
 Plugin 'jplaut/vim-arduino-ino'
 " Plugin 'SirVer/ultisnips'
 " Plugin 'honza/vim-snippets'
+Plugin 'sickill/vim-monokai'
+
 call vundle#end()           " required
 
 filetype plugin indent on   " required
@@ -69,6 +73,7 @@ set showmatch           " highlight matching [{()}]
 set ignorecase          " ignore case in search
 set fileformats=unix    " use Unix line endings
 set incsearch           " search as characters are entered
+set showmatch           " show brace highlight
 
 " fold configuration
 set foldenable          " enabling folding
@@ -129,7 +134,9 @@ set background=dark
 " colorscheme OceanicNext
 " colorscheme one
 " colorscheme onehalfdark
-colorscheme solarized8_flat
+" colorscheme solarized8_flat
+colorscheme solarized8
+" colorscheme monokai
 
 """ Plugin Configurations
 
@@ -167,7 +174,17 @@ let g:pymode_python = 'python3'
 " let g:kite_snippets=1
 
 " NerdTree
-let NERDTreeIgnore = ['^\.git$', '^\.vagrant', '.*\.sw[pon]$']
+let NERDTreeIgnore = [
+    \'\.git$',
+    \'\.vagrant$',
+    \'\.sw[pon]$',
+    \'__pycache__',
+    \'\.venv$',
+    \'\.o$',
+    \'\.out$',
+    \'\.egg-info$',
+    \'\.db$',
+    \]
 
 " Lightline
 
@@ -184,13 +201,18 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+let g:Syntastic_mode_map = {'mode':'passive'}
 
+:command Sc :SyntasticCheck
+:command Sr :SyntasticReset
+
+" let g:Syntastic_python_checkers = ['pylint']
+let g:Syntastic_python_checkers = ['flake8']
 let g:syntastic_php_checkers = ['php', 'phpcs']
 let g:syntastic_css_checkers = ['csslint']
 let g:syntastic_html_checkers = ['eslint']
-" let g:syntastic_javascript_checkers = ['eslint', 'tern_lint']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_json_checkers = ['jsonlint']
 let g:syntastic_c_checkers=['gcc', 'avrgcc']

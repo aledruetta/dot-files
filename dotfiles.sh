@@ -60,6 +60,7 @@ function main {
         fi
         linkDotfile "$HOME" common vimrc
         linkDotfile "${HOME}/.vim" common ycm_extra_conf.py
+        linkDotfile "${HOME}/.config/nvim" common init.vim
         ;;
       t  ) # tmux
         if [[ ! -d ~/.tmux ]]; then
