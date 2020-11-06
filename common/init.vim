@@ -1,5 +1,11 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'airblade/vim-gitgutter'
+Plug 'majutsushi/tagbar'
+Plug 'lepture/vim-jinja'
+Plug 'pangloss/vim-javascript'
+Plug 'alvan/vim-closetag'
+
 " For deoplete autocompletion pip install pynvim jedi
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
@@ -7,15 +13,20 @@ Plug 'zchee/deoplete-jedi'
 " Auto-pairs quotes and brackets
 Plug 'jiangmiao/auto-pairs'
 
-" Plug 'scrooloose/nerdcommenter'
+" Folding
+Plug 'tmhedberg/simpylfold'
 
 " File tree
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 
 " UI related
 Plug 'chriskempson/base16-vim'
 Plug 'lifepillar/vim-solarized8'
 Plug 'phanviet/vim-monokai-pro'
+Plug 'rakr/vim-one'
+Plug 'joshdick/onedark.vim'
 
 " Better Visual Guide
 Plug 'Yggdroot/indentLine'
@@ -25,27 +36,40 @@ Plug 'neomake/neomake'
 
 " Editorconfig
 Plug 'editorconfig/editorconfig-vim'
-
-" Tmux
 Plug 'christoomey/vim-tmux-navigator'
-
-" Lightline
 Plug 'itchyny/lightline.vim'
-
-" syntax check
-" Plug 'w0rp/ale'
-
-" Autocomplete
-" Plug 'ncm2/ncm2'
-" Plug 'roxma/nvim-yarp'
-" Plug 'ncm2/ncm2-bufword'
-" Plug 'ncm2/ncm2-path'
-" Plug 'ncm2/ncm2-jedi'
 
 " Formater (pip install yapf)
 Plug 'sbdchd/neoformat' 
 
 call plug#end()
+
+filetype plugin indent on
+syntax on
+
+set laststatus=2
+set encoding=utf-8
+set fileencoding=utf-8
+set textwidth=80
+set nowrap
+set number
+set wildmenu		    " visual autocomplete for command menu
+set showmatch		    " highlight matching [{()}]
+set ignorecase		    " ignore case in search
+set incsearch		    " search as characters are entered
+set fileformats=unix	" use Unix line endings
+" set cursorline
+" set noruler
+
+set tabstop=4		    " number of visual spaces per TAB
+set softtabstop=4	    " number of spaces in tab when editing
+set shiftwidth=4
+set smarttab
+set expandtab		    " tabs are spaces
+set autoindent		    " auto indent based on previous line
+
+set foldmethod=indent
+au BufRead * normal zR
 
 " Deoplete autocompletion
 " Use C-P, C-N for list navigation
@@ -62,7 +86,17 @@ let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim = 1
 
 " Neomake
-let g:neomake_python_enabled_makers = ['pylint']
+let g:neomake_python_enabled_makers = ['flake8', 'pylint']
+let g:neomake_javascript_enabled_makers = ['eslint']
+" When writing a buffer (no delay).
+call neomake#configure#automake('w')
+" When writing a buffer (no delay), and on normal mode changes (after 750ms).
+call neomake#configure#automake('nw', 750)
+" When reading a buffer (after 1s), and when writing (no delay).
+call neomake#configure#automake('rw', 1000)
+" Full config: when writing or reading a buffer, and on changes in insert and
+" normal mode (after 500ms; no delay when writing).
+call neomake#configure#automake('nrwi', 500)
 
 " Nerdtree
 let NERDTreeIgnore = [
@@ -73,45 +107,39 @@ let NERDTreeIgnore = [
     \'\.o$',
     \'\.out$',
     \'\.git$',
+    \'\.pyc$',
     \'__pycache__$',
     \]
+let NERDTreeMinimalUI = 1
+let g:nerdtree_open = 0
+map <leader>n :call NERDTreeToggle()<CR>
+function NERDTreeToggle()
+    NERDTreeTabsToggle
+    if g:nerdtree_open == 1
+        let g:nerdtree_open = 0
+    else
+        let g:nerdtree_open = 1
+        wincmd p
+    endif
+endfunction
+
+" tag list
+map <leader>t :TagbarToggle<CR>
 
 " Themes
-let base16colorspace=256
-set background=dark
-colorscheme monokai_pro
 
-if has("termguicolors")
+let base16colorspace=256
+set t_Co=256
+set t_ut=
+set noshowmode
+set background=dark
+let g:one_allow_italics = 1
+let g:lightline = { 'colorscheme': 'onedark' }
+colorscheme onedark
+
+if (has("termguicolors"))
     set termguicolors
 endif
-
-let g:lightline = {
-    \'colorscheme': 'monokai_pro',
-    \}
-
-filetype on
-filetype plugin on
-filetype indent on
-
-syntax on
-set encoding=utf8
-set textwidth=79
-set nowrap
-set number
-set wildmenu		" visual autocomplete for command menu
-set showmatch		" highlight matching [{()}]
-set ignorecase		" ignore case in search
-set incsearch		" search as characters are entered
-set fileformats=unix	" use Unix line endings
-" set cursorline
-" set noruler
-
-set tabstop=4		" number of visual spaces per TAB
-set softtabstop=4	" number of spaces in tab when editing
-set shiftwidth=4
-set smarttab
-set expandtab		" tabs are spaces
-set autoindent		" auto indent based on previous line
 
 au BufNewFile,BufRead *.js,*.json,*.html,*.css,*.yaml
     \ set tabstop=2
