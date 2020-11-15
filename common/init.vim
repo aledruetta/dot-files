@@ -69,7 +69,7 @@ set expandtab		    " tabs are spaces
 set autoindent		    " auto indent based on previous line
 
 set foldmethod=indent
-au BufRead * normal zR
+au BufWinEnter * normal zR
 
 " Deoplete autocompletion
 " Use C-P, C-N for list navigation
@@ -84,6 +84,17 @@ let g:neoformat_basic_format_retab = 1
 
 " Enable trimmming of trailing whitespace
 let g:neoformat_basic_format_trim = 1
+
+let g:neoformat_try_formatprg = 1
+augroup NeoformatAutoFormat
+    autocmd!
+    autocmd FileType javascript setlocal formatprg=prettier\
+                                             \--stdin\
+                                             \--print-width\ 80\
+                                             \--single-quote\
+                                             \--trailing-comma\ es5
+    autocmd BufWritePre *.js Neoformat
+augroup END
 
 " Neomake
 let g:neomake_python_enabled_makers = ['flake8', 'pylint']
@@ -109,6 +120,9 @@ let NERDTreeIgnore = [
     \'\.git$',
     \'\.pyc$',
     \'__pycache__$',
+    \'node_modules$',
+    \'package-lock.json$',
+    \'\.log$',
     \]
 let NERDTreeMinimalUI = 1
 let g:nerdtree_open = 0
