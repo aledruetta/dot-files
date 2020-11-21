@@ -1,46 +1,46 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'airblade/vim-gitgutter'
-Plug 'majutsushi/tagbar'
-Plug 'lepture/vim-jinja'
-Plug 'pangloss/vim-javascript'
-Plug 'alvan/vim-closetag'
-
-" For deoplete autocompletion pip install pynvim jedi
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
-
-" Auto-pairs quotes and brackets
-Plug 'jiangmiao/auto-pairs'
-
-" Folding
-Plug 'tmhedberg/simpylfold'
-
-" File tree
-" Plug 'scrooloose/nerdtree'
-Plug 'preservim/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
-
-" UI related
-Plug 'chriskempson/base16-vim'
-Plug 'lifepillar/vim-solarized8'
-Plug 'phanviet/vim-monokai-pro'
-Plug 'rakr/vim-one'
-Plug 'joshdick/onedark.vim'
-
-" Better Visual Guide
-Plug 'Yggdroot/indentLine'
-
-" Syntax check (pip install pylint)
-Plug 'neomake/neomake'
-
-" Editorconfig
-Plug 'editorconfig/editorconfig-vim'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'itchyny/lightline.vim'
-
-" Formater (pip install yapf)
-Plug 'sbdchd/neoformat' 
+    Plug 'airblade/vim-gitgutter'
+    Plug 'majutsushi/tagbar'
+    Plug 'lepture/vim-jinja'
+    Plug 'pangloss/vim-javascript'
+    Plug 'alvan/vim-closetag'
+    
+    " For deoplete autocompletion pip install pynvim jedi
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'zchee/deoplete-jedi'
+    
+    " Auto-pairs quotes and brackets
+    Plug 'jiangmiao/auto-pairs'
+    
+    " Folding
+    Plug 'tmhedberg/simpylfold'
+    
+    " File tree
+    " Plug 'scrooloose/nerdtree'
+    Plug 'preservim/nerdtree'
+    " Plug 'jistr/vim-nerdtree-tabs'
+    
+    " UI related
+    " Plug 'chriskempson/base16-vim'
+    " Plug 'lifepillar/vim-solarized8'
+    " Plug 'phanviet/vim-monokai-pro'
+    " Plug 'rakr/vim-one'
+    Plug 'joshdick/onedark.vim'
+    
+    " Better Visual Guide
+    Plug 'Yggdroot/indentLine'
+    
+    " Syntax check (pip install pylint)
+    Plug 'neomake/neomake'
+    
+    " Editorconfig
+    Plug 'editorconfig/editorconfig-vim'
+    Plug 'christoomey/vim-tmux-navigator'
+    Plug 'itchyny/lightline.vim'
+    
+    " Formater (pip install yapf)
+    Plug 'sbdchd/neoformat' 
 
 call plug#end()
 
@@ -50,7 +50,7 @@ syntax on
 set laststatus=2
 set encoding=utf-8
 set fileencoding=utf-8
-set textwidth=80
+" set textwidth=80
 set nowrap
 set number
 set wildmenu		    " visual autocomplete for command menu
@@ -136,9 +136,6 @@ function NERDTreeToggle()
         wincmd p
     endif
 endfunction
-
-" tag list
-map <leader>t :TagbarToggle<CR>
 
 " Themes
 
