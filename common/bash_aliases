@@ -2,7 +2,7 @@
 
 alias activate="source .venv/bin/activate"
 alias bat="batcat"
-alias vim="nvim"
+# alias vim="nvim"
 
 alias g='git'
 
