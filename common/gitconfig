@@ -16,7 +16,7 @@
     b   = branch
     c   = commit
     ca  = commit --amend
-    cm  = commit -m
+    cms = commit -m
     co  = checkout
     cm  = checkout master
     cd  = checkout devel
