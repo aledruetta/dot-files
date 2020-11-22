@@ -10,6 +10,40 @@
     interactive = true
 
 [alias]
+    al  = config --get-regexp alias
+    a   = add
+    aa  = add --all
+    b   = branch
+    c   = commit
+    ca  = commit --amend
+    cm  = commit -m
+    co  = checkout
+    cm  = checkout master
+    cd  = checkout devel
+    d   = diff
+    dc  = diff --cached
+    ds  = diff --staged
+    f   = fetch
+    fo  = fetch origin
+    fu  = fetch upstream
+    ls  = ls-files
+    l   = pull
+    lo  = pull origin
+    lu  = pull upstream
+    lg  = log --stat
+    lgo = log --oneline --decorate --graph --all
+    m   = merge
+    mom = merge origin/master
+    mum = merge upstream/master
+    p   = push
+    po  = push origin
+    pu  = push upstream
+    r   = rebase
+    ro  = rebase origin
+    ru  = rebase upstream
+    rs  = restore
+    st  = status
+    t   = tag
 
 
 [core]
