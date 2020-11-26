@@ -17,8 +17,8 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'tmhedberg/simpylfold'
     
     " File tree
-    " Plug 'scrooloose/nerdtree'
-    Plug 'preservim/nerdtree'
+    Plug 'scrooloose/nerdtree'
+    " Plug 'preservim/nerdtree'
     " Plug 'jistr/vim-nerdtree-tabs'
     
     " UI related
@@ -26,7 +26,18 @@ call plug#begin('~/.local/share/nvim/plugged')
     " Plug 'lifepillar/vim-solarized8'
     " Plug 'phanviet/vim-monokai-pro'
     " Plug 'rakr/vim-one'
+    Plug 'mhartington/oceanic-next'
     Plug 'joshdick/onedark.vim'
+
+    " light/airline
+    " Plug 'itchyny/lightline.vim'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+
+    " Icons
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
     
     " Better Visual Guide
     Plug 'Yggdroot/indentLine'
@@ -36,11 +47,16 @@ call plug#begin('~/.local/share/nvim/plugged')
     
     " Editorconfig
     Plug 'editorconfig/editorconfig-vim'
+
+    " Tmux
     Plug 'christoomey/vim-tmux-navigator'
-    Plug 'itchyny/lightline.vim'
     
     " Formater (pip install yapf)
     Plug 'sbdchd/neoformat' 
+
+    " Git
+    Plug 'mhinz/vim-signify'
+    Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -124,6 +140,11 @@ let NERDTreeIgnore = [
     \'package-lock.json$',
     \'\.log$',
     \]
+
+" Custom icons for expandable/expanded directories
+let g:NERDTreeDirArrowExpandable = '⬏'
+let g:NERDTreeDirArrowCollapsible = '⬎'
+
 let NERDTreeMinimalUI = 1
 let g:nerdtree_open = 0
 map <leader>n :call NERDTreeToggle()<CR>
@@ -139,14 +160,61 @@ endfunction
 
 " Themes
 
+set termguicolors
 let base16colorspace=256
 set t_Co=256
 set t_ut=
 set noshowmode
 set background=dark
 let g:one_allow_italics = 1
-let g:lightline = { 'colorscheme': 'onedark' }
-colorscheme onedark
+
+" let g:lightline = { 'colorscheme': 'onedark' }
+try
+    colorscheme OceanicNext
+catch
+    colorscheme onedark
+endtry
+
+" Vim airline theme
+let g:airline_theme='minimalist'
+
+" === Vim airline ==== "
+" Enable extensions
+let g:airline_extensions = ['branch', 'hunks', 'coc']
+
+" Update section z to just have line number
+let g:airline_section_z = airline#section#create(['linenr'])
+
+" Do not draw separators for empty sections (only for the active window) >
+let g:airline_skip_empty_sections = 1
+
+" Smartly uniquify buffers names with similar filename, suppressing common parts of paths.
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+" Custom setup that removes filetype/whitespace from default vim airline bar
+let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'z', 'warning', 'error']]
+
+" Customize vim airline per filetype
+" 'nerdtree'  - Hide nerdtree status line
+" 'list'      - Only show file type plus current line number out of total
+let g:airline_filetype_overrides = {
+  \ 'nerdtree': [ get(g:, 'NERDTreeStatusline', ''), '' ],
+  \ 'list': [ '%y', '%l/%L'],
+  \ }
+
+" Enable powerline fonts
+let g:airline_powerline_fonts = 1
+
+" Enable caching of syntax highlighting groups
+let g:airline_highlighting_cache = 1
+
+" Define custom airline symbols
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" Don't show git changes to current file in airline
+let g:airline#extensions#hunks#enabled=0
 
 if (has("termguicolors"))
     set termguicolors
