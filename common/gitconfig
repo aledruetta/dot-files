@@ -50,6 +50,7 @@
     editor = vim
     ignorecase = false
     excludefile = ~/.gitignore_global
+	autocrlf = input
 
 [push]
     default = simple

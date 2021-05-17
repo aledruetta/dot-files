@@ -113,7 +113,7 @@ augroup NeoformatAutoFormat
 augroup END
 
 " Neomake
-let g:neomake_python_enabled_makers = ['flake8', 'pylint']
+let g:neomake_python_enabled_makers = ['pylint']
 let g:neomake_javascript_enabled_makers = ['eslint']
 " When writing a buffer (no delay).
 call neomake#configure#automake('w')
@@ -138,6 +138,7 @@ let NERDTreeIgnore = [
     \'__pycache__$',
     \'node_modules$',
     \'package-lock.json$',
+    \'tilix.json$',
     \'\.log$',
     \]
 
